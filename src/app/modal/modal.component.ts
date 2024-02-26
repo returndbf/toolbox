@@ -1,14 +1,21 @@
 import {Component, Input} from '@angular/core';
+import {ModalService} from "./modal.service";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf
+  ],
  template:`
-   <main>
+   <main *ngIf="modalService.open">
      <div class="modal-overlay">
    <div class="modal">
-     <div class="modal-header">{{title }}</div>
+     <div class="modal-header">
+       <div>{{title}}</div>
+       <div style="background: black;width: 10px;height: 10px" (click)="modalService.closeModal()"></div>
+     </div>
      <hr/>
      <div class="modal-body">
 <!--       插槽-->
@@ -22,4 +29,11 @@ import {Component, Input} from '@angular/core';
 })
 export class ModalComponent {
   @Input() title = "Modal Title"
+
+  constructor(public modalService: ModalService) {
+  }
+  click() {
+    this.modalService.openModal();
+  }
+
 }

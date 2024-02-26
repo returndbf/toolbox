@@ -2,6 +2,7 @@ import {Component, DoCheck, Input, OnChanges, SimpleChanges} from '@angular/core
 import { RouterOutlet } from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {ModalComponent} from "./modal/modal.component";
+import {ModalService} from "./modal/modal.service";
 
 
 @Component({
@@ -14,7 +15,8 @@ import {ModalComponent} from "./modal/modal.component";
 export class AppComponent  {
   todayDiet = ''
   list:string[] = ['汉堡', '米村拌饭', '洋葱牛肉饭', '冒菜','超意兴' ,'烤鸭', '铁锅焖面' ,'鸡公煲', '麻辣烫' ,'肉夹馍', '疙瘩汤', '牛腩堡', '把子肉' ,'咖喱饭' ,'重庆小面', '赛百味']
-
+  constructor(private modalService: ModalService) {
+  }
   async selectToday(){
     let now = new Date().getTime()
     let futureDate = now - 3000
@@ -33,6 +35,9 @@ export class AppComponent  {
 
   async addListItem(){
 
+  }
+  openModal(){
+    this.modalService.openModal()
   }
 
 }
