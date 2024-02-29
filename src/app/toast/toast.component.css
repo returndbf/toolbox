@@ -1,0 +1,12 @@
+.toast {
+  width: 200px ;
+  height: 100px;
+  background-color: #f0baba;
+  border-radius: 10px;
+  margin: 0 auto;
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}

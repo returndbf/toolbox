@@ -13,8 +13,10 @@
     {{todayDiet}}
   </div>
   <button (click)='selectToday()'>selectToday</button>
+  <p>{{modalService.open}}</p>
   <app-modal >
     <input type="text"/>
   </app-modal>
   <button (click)="openModal()" > modal</button>
+  <button (click)="showToast()" > toast</button>
 </main>
